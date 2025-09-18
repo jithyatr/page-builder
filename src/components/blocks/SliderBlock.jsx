@@ -7,24 +7,32 @@ import "swiper/css/navigation";
 import useSliderBlock from "../../hooks/useSliderBlock";
 
 const SliderBlock = (props) => {
-    const { title, titleColor, background, images, autoplay, interval, onUpdate } = props;
+    const { title, titleColor, background, images, autoplay, interval, onUpdate, subtitle, subtitleColor} = props;
     const { handleRemove, handleReplace } = useSliderBlock({ onUpdate, images });
 
     return (
         <section
-            className={`${background} py-8`}
+            className={`${background} py-20 md:px-8 px-4`}
             style={{ backgroundColor: background }}
         >
             {title && (
-                <h2
-                    className={`text-center text-2xl font-bold mb-6`}
+                <h1
+                    className={`text-center md:text-6xl text-4xl font-bold mb-6`}
                     style={{ color: titleColor }}
                 >
                     {title}
-                </h2>
+                </h1>
+            )}
+              {subtitle && (
+                <p
+                    className="text-lg mb-6" 
+                    style={{ color: subtitleColor }}
+                >
+                    {subtitle}
+                </p>
             )}
 
-            <div className="max-w-4xl mx-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="max-w-4xl w-dvw mx-auto md:px-8 px-4" onClick={(e) => e.stopPropagation()}>
                 <Swiper
                     modules={[Autoplay, Pagination, Navigation]}
                     spaceBetween={30}

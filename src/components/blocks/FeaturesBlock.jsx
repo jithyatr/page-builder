@@ -4,21 +4,21 @@ export default function FeaturesBlock(props) {
   const { title, items, titleColor, background, onUpdate } = props;
   return (
     <section
-      className="py-16 px-8 bg-white text-center"
+      className="py-20 md:px-8 px-4 bg-white text-center"
       style={{ backgroundColor: background}}
     >
-      <h2 className="text-3xl font-bold mb-10" style={{ color: titleColor }}>
+      <h1 className="md:text-6xl text-4xl font-bold mb-4" style={{ color: titleColor }}>
         <InlineEditor
           value={title}
           onChange={(val) => {
             onUpdate("title", val);
           }}
         />
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {items.map((item, i) => (
+      </h1>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        {items?.map((item, i) => (
           <div key={i} className="p-6 border rounded-lg">
-            <h3 className="text-xl font-semibold mb-2" style={{ color: item.titleColor }}>
+            <h2 className="text-xl font-semibold mb-2" style={{ color: item.titleColor }}>
               <InlineEditor
                 value={item.title}
                 onChange={(val) => {
@@ -27,7 +27,7 @@ export default function FeaturesBlock(props) {
                   onUpdate("items", newItems);
                 }}
               />
-            </h3>
+            </h2>
             <p style={{ color: item.descriptionColor }}> 
               <InlineEditor
                 value={item.description}

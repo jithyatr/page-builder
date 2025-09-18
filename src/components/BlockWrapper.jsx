@@ -17,14 +17,15 @@ export default function BlockWrapper({ children, blockId, isSelected, onClick, o
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
-                                setShowTemplateOptions((prev) => !prev);
+                                // setShowTemplateOptions((prev) => !prev);
+                                onAdd(blockId);
                             }}
                             className="bg-pink-500 text-white px-2 py-1 rounded text-sm"
                         >
                             +
                         </button>
 
-                        {showTemplateOptions && (
+                        {/* {showTemplateOptions && (
                             <div className="absolute bottom-10 right-0 bg-white border shadow-md rounded p-2 z-10 w-2xs">
                                 {[...new Set(pageData.blocks.map((b) => b.type))].map((type) => (
                                     <button
@@ -41,7 +42,7 @@ export default function BlockWrapper({ children, blockId, isSelected, onClick, o
                                     </button>
                                 ))}
                             </div>
-                        )}
+                        )} */}
 
                         <button
                             onClick={(e) => {

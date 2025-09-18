@@ -15,7 +15,6 @@ const useUpdate = () => {
     );
     const updateBlock = (blockId, field, value, itemId = null) => {
         const newBlocks = page.blocks.map((b) => {
-            console.log(b?.id, blockId)
             if (b?.id !== blockId) return b;
             // If updating an item inside items
             if (itemId && b.props.items) {
@@ -36,17 +35,35 @@ const useUpdate = () => {
     };
 
 
-    const addBlock = (afterId, type = "common") => {
+    // const addBlock = (afterId, type = "common") => {
+    //     const idx = page.blocks.findIndex((b) => b.id === afterId);
+
+    //     const templateBlock = pageData.blocks.find((b) => b.type === type);
+    //     if (!templateBlock) return;
+
+    //     const newBlock = {
+    //         ...templateBlock,
+    //         id: Date.now().toString(),
+    //     };
+
+    //     const newBlocks = [...page.blocks];
+    //     newBlocks.splice(idx + 1, 0, newBlock);
+
+    //     const updatedPage = { ...page, blocks: newBlocks };
+    //     setPage(updatedPage);
+    //     saveToLocalStorage(updatedPage);
+    // };
+    const addBlock = (afterId, type = "common", props = {}) => {
         const idx = page.blocks.findIndex((b) => b.id === afterId);
 
-        const templateBlock = pageData.blocks.find((b) => b.type === type);
-        if (!templateBlock) return;
-
+        // build new block from chosen template
         const newBlock = {
-            ...templateBlock,
-            id: Date.now().toString(),
+            id: Date.now().toString(), // unique id
+            type,
+            props,
         };
 
+        // insert after the clicked block
         const newBlocks = [...page.blocks];
         newBlocks.splice(idx + 1, 0, newBlock);
 
@@ -54,6 +71,7 @@ const useUpdate = () => {
         setPage(updatedPage);
         saveToLocalStorage(updatedPage);
     };
+
 
 
     const duplicateBlock = (id) => {

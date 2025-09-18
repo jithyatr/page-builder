@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BlockRenderer from './BlockRender';
 import useUpdate from '../hooks/useUpdate';
 import SidebarEditor from './SidebarEditor';
+import BlockPreview from './BlockPreview';
 
 const BlockRenders = () => {
     const { updateBlock, selectedBlockId, setSelectedBlockId, addBlock, deleteBlock, duplicateBlock, page } = useUpdate();
     const selectedBlock = page.blocks.find((b) => b.id === selectedBlockId);
+    const [sidebarMode, setSidebarMode] = useState("edit");
 
 
     return (
@@ -16,9 +18,15 @@ const BlockRenders = () => {
                         key={block.id}
                         block={block}
                         isSelected={selectedBlockId === block.id}
-                        onSelect={() => setSelectedBlockId(block.id)}
+                        onSelect={() => {
+                            setSelectedBlockId(block.id);
+                            setSidebarMode("edit");
+                        }}
                         onUpdate={updateBlock}
-                        onAdd={addBlock}
+                        onAdd={(blockId) => {
+                            setSidebarMode("add");
+                            setSelectedBlockId(blockId);
+                        }}
                         onDuplicate={duplicateBlock}
                         onDelete={deleteBlock}
                     />
@@ -26,7 +34,18 @@ const BlockRenders = () => {
             </div>
 
             {selectedBlock && (
-                <SidebarEditor block={selectedBlock} onUpdate={updateBlock} />
+                <>
+                    {sidebarMode === "edit" ? (
+                        <SidebarEditor block={selectedBlock} onUpdate={updateBlock} />
+                    ) : (
+                        <BlockPreview
+                            onAdd={(type) => {
+                                addBlock(selectedBlockId, type);
+                                setSidebarMode("edit");
+                            }}
+                        />
+                    )}
+                </>
             )}
         </div>
     );
