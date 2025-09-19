@@ -3,6 +3,8 @@ import InlineEditor from "../InlineEditor";
 
 export default function HeroBlock(props) {
   const { title, titleColor, subtitle, subtitleColor, buttonText, background, buttonBg, buttonTextColor, onUpdate, image } = props;
+  console.log(image,"jjjjjh");
+  
   const { handleFileChange, handleImageClick, fileInputRef } = useImage({ onUpdate, image })
   return (
     <section
