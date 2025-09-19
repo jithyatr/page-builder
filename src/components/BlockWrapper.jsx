@@ -1,8 +1,5 @@
 import { useState } from "react";
-import pageData from "../pageData";
-
 export default function BlockWrapper({ children, blockId, isSelected, onClick, onAdd, onDuplicate, onDelete }) {
-    const [showTemplateOptions, setShowTemplateOptions] = useState(false);
 
     return (
         <div
@@ -24,25 +21,6 @@ export default function BlockWrapper({ children, blockId, isSelected, onClick, o
                         >
                             +
                         </button>
-
-                        {/* {showTemplateOptions && (
-                            <div className="absolute bottom-10 right-0 bg-white border shadow-md rounded p-2 z-10 w-2xs">
-                                {[...new Set(pageData.blocks.map((b) => b.type))].map((type) => (
-                                    <button
-                                        key={type}
-                                        className="block w-full text-left px-2 py-1 hover:bg-gray-100"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            onAdd(blockId, type);
-                                            setShowTemplateOptions(false);
-                                        }}
-
-                                    >
-                                        {type.charAt(0).toUpperCase() + type.slice(1)} Block
-                                    </button>
-                                ))}
-                            </div>
-                        )} */}
 
                         <button
                             onClick={(e) => {

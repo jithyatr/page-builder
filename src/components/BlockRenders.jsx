@@ -39,8 +39,8 @@ const BlockRenders = () => {
                         <SidebarEditor block={selectedBlock} onUpdate={updateBlock} />
                     ) : (
                         <BlockPreview
-                            onAdd={(type) => {
-                                addBlock(selectedBlockId, type);
+                            onAdd={(block) => {
+                                addBlock(selectedBlockId, block);
                                 setSidebarMode("edit");
                             }}
                         />

@@ -34,33 +34,15 @@ const useUpdate = () => {
         saveToLocalStorage(updatedPage);
     };
 
-
-    // const addBlock = (afterId, type = "common") => {
-    //     const idx = page.blocks.findIndex((b) => b.id === afterId);
-
-    //     const templateBlock = pageData.blocks.find((b) => b.type === type);
-    //     if (!templateBlock) return;
-
-    //     const newBlock = {
-    //         ...templateBlock,
-    //         id: Date.now().toString(),
-    //     };
-
-    //     const newBlocks = [...page.blocks];
-    //     newBlocks.splice(idx + 1, 0, newBlock);
-
-    //     const updatedPage = { ...page, blocks: newBlocks };
-    //     setPage(updatedPage);
-    //     saveToLocalStorage(updatedPage);
-    // };
-    const addBlock = (afterId, type = "common", props = {}) => {
+    const addBlock = (afterId, block, type = "common", props = {}) => {
         const idx = page.blocks.findIndex((b) => b.id === afterId);
 
         // build new block from chosen template
         const newBlock = {
-            id: Date.now().toString(), // unique id
             type,
-            props,
+            ...block,
+            id: Date.now().toString(), // unique id
+            ...props,
         };
 
         // insert after the clicked block

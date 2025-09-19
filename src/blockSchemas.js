@@ -1,73 +1,132 @@
-// blockSchemas.js
-export const blockSchemas = {
-  hero: [
+const blockSchemas = {
+  id: "preview_1",
+  title: "Preview Page",
+  blocks: [
     {
-      id: "hero_default",
-      label: "Hero with Image",
-      image: "/images/hero.png",
+      id: "p1",
+      type: "heroclassic",
+      title: "Hero Classic",
+      preview: "/images/heroclassic.png",
       props: {
-        title: "Welcome to My Page",
-        subtitle: "Build beautiful pages fast",
+        title: "Welcome to Our Platform",
+        titleColor: "#1D4ED8",
+        subtitle: "Transform your business with our innovative solutions. Get started today and see the difference.",
+        subtitleColor: "#4B5563",
         buttonText: "Get Started",
         background: "#EEF2FF",
-        titleColor: "#1D4ED8",
-        subtitleColor: "#4B5563",
         buttonBg: "#2563EB",
         buttonTextColor: "#FFFFFF",
         image: "https://www.jpwebagency.com/assets/banner.jpeg",
-      },
+      }
     },
     {
-      id: "hero_minimal",
-      label: "Minimal Hero",
-      image: "/images/hero.png",
+      id: "p2",
+      type: "whychooseus",
+      title: "Why choose us",
+      preview: "/images/whychooseus.png",
       props: {
-        title: "Hello World",
-        subtitle: "Simple & clean hero section",
-        buttonText: "Learn More",
-        background: "#FFFFFF",
-        titleColor: "#111827",
-        subtitleColor: "#6B7280",
-        buttonBg: "#111827",
-        buttonTextColor: "#FFFFFF",
-        image: "",
-      },
-    },
-  ],
-
-  features: [
-    {
-      id: "features_three",
-      label: "Three Features",
-      image: "/images/features.png",
-      props: {
-        title: "Our Features",
-        titleColor: "#1D4ED8",
+        title: "Why Choose Us",
+        titleColor: "#059669",
         background: "#ECFDF5",
         items: [
-          { id: "i1", title: "Fast", titleColor: "#2563EB", description: "Quick and reliable", descriptionColor: "#4B5563" },
-          { id: "i2", title: "Customizable", titleColor: "#059669", description: "Fully configurable", descriptionColor: "#4B5563" },
-          { id: "i3", title: "Open Source", titleColor: "#9333EA", description: "Community driven", descriptionColor: "#4B5563" },
-        ],
-      },
+          {
+            id: "f1",
+            title: "Lightning Fast",
+            titleColor: "#DC2626",
+            description: "Experience blazing-fast performance with our optimized infrastructure.",
+            descriptionColor: "#4B5563"
+          },
+          {
+            id: "f2",
+            title: "Secure & Reliable",
+            titleColor: "#2563EB",
+            description: "Enterprise-grade security with 99.9% uptime guarantee.",
+            descriptionColor: "#4B5563"
+          },
+          {
+            id: "f3",
+            title: "24/7 Support",
+            titleColor: "#7C3AED",
+            description: "Round-the-clock support from our expert team.",
+            descriptionColor: "#4B5563"
+          }
+        ]
+      }
     },
     {
-      id: "features_grid",
-      label: "Feature Grid",
-      image: "/images/features.png",
+      id: "p3",
+      type: "commoncta",
+      title: "Hero Classic",
+      preview: "/images/commoncta.png",
       props: {
-        title: "Why choose us?",
-        titleColor: "#1D4ED8",
-        background: "#FFFFFF",
+        title: "Ready to Get Started?",
+        titleColor: "#FFFFFF",
+        subtitle: "Join thousands of satisfied customers and transform your business today.",
+        subtitleColor: "#E5E7EB",
+        buttonText: "Start Now",
+        background: "linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)",
+        buttonBg: "#FFFFFF",
+        buttonTextColor: "#8B5CF6",
+      }
+    },
+    {
+      id: "p4",
+      type: "testimonial",
+      title: "Testimonial",
+      preview: "/images/testimonial.png",
+      props: {
+        title: "What Our Customers Say",
+        titleColor: "#111827",
+        subtitle: "Don't just take our word for it. Here's what real customers are saying about their experience.",
+        subtitleColor: "#6B7280",
+        buttonText: "Read More Reviews",
+        background: "#F9FAFB",
+        buttonBg: "#111827",
+        buttonTextColor: "#FFFFFF",
         items: [
-          { id: "i1", title: "Speed", titleColor: "#2563EB", description: "Lightning fast", descriptionColor: "#4B5563" },
-          { id: "i2", title: "Secure", titleColor: "#059669", description: "Your data is safe", descriptionColor: "#4B5563" },
-          { id: "i3", title: "Flexible", titleColor: "#9333EA", description: "Adapt to your needs", descriptionColor: "#4B5563" },
-          { id: "i4", title: "Modern", titleColor: "#F59E0B", description: "Latest technologies", descriptionColor: "#4B5563" },
-        ],
+          {
+            id: "t1",
+            title: "Sarah Johnson",
+            titleColor: "#DC2626",
+            role: "Marketing Manager",
+            feedback:
+              "This service completely exceeded my expectations. The process was seamless, and the support team was always available to help!",
+          },
+          {
+            id: "t2",
+            title: "David Lee",
+            titleColor: "#DC2626",
+            role: "Entrepreneur",
+            feedback:
+              "I’ve tried many platforms before, but this is the first one that feels intuitive and truly delivers results.",
+          },
+          {
+            id: "t3",
+            title: "Emily Carter",
+            titleColor: "#DC2626",
+            role: "Product Designer",
+            feedback:
+              "Beautifully designed and easy to use. I recommend it to anyone who wants to grow their business efficiently.",
+          },
+
+        ]
+      }
+    },
+    {
+      id: "p5",
+      type: "aboutus",
+      title: "About us",
+      preview: "/images/aboutus.png",
+      props: {
+        title: "About Our Company",
+        titleColor: "#1F2937",
+        subtitle: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+        subtitleColor: "#4B5563",
+        background: "#EEF2FF",
+        image: "https://imagekit.io/blog/content/images/2019/12/image-optimization.jpg",
       },
     },
-  ],
-
-  // you can add common, slider, footer variations too
+  ]
 };
+
+export default blockSchemas;
