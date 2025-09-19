@@ -3,19 +3,18 @@ import InlineEditor from "../InlineEditor";
 
 export default function HeroBlock(props) {
   const { title, titleColor, subtitle, subtitleColor, buttonText, background, buttonBg, buttonTextColor, onUpdate, image } = props;
-  console.log(image,"jjjjjh");
-  
+
   const { handleFileChange, handleImageClick, fileInputRef } = useImage({ onUpdate, image })
   return (
     <section
       className={`py-20 md:px-8 px-4 text-left grid lg:grid-cols-2 md:gap-8 gap-4`}
       style={{ backgroundColor: background }}
     >
-      <div className="col-span-1">
+      <div className="col-span-1 rounded-3xl overflow-hidden shadow-2xl max-h-[550px]">
         <img
           src={image}
           alt="Banner image"
-          className="w-full max-w-3xl object-cover cursor-pointer"
+          className="w-full h-full object-cover cursor-pointer"
           onClick={handleImageClick}
         />
         <input
